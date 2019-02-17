@@ -20,5 +20,16 @@
  * @return {boolean}
  */
 export function passwordCheck(password) {
+  const number = /[0-9]/g;
 
+  const word1 = /[A-Z][a-z]/g;
+
+  const word2 = /[a-z][A-Z]/g;
+
+  const sym = /[!?,.+-/=]/g;
+
+  if (number.test(password) && (word1.test(password) || word2.test(password)) && sym.test(password)) {
+    return true;
+  }
+  return false;
 }

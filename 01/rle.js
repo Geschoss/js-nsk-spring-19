@@ -14,5 +14,17 @@
  * @return {string}
  */
 export function rle(input) {
+  let str = '';
 
+  let temp = 1;
+
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === input[i + 1]) {
+      temp += 1;
+    } else {
+      temp > 1 ? (str += input[i - 1] + temp) : (str += input[i]);
+      temp = 1;
+    }
+  }
+  return str;
 }

@@ -17,5 +17,23 @@
  * @return {{min: number, max: number}} объект с минимумом и максимумом
  */
 export function getMinMax(input) {
+  let mn = input.includes('-Infinity') ? -Infinity : Infinity;
 
+  let mx = input.includes('Infinity') ? Infinity : -Infinity;
+
+  const newInput = input.split(' ');
+
+  for (let i = 0; i < newInput.length; i++) {
+    if (parseFloat(newInput[i]) !== 'NaN' && parseFloat(newInput[i]) < mn) {
+      mn = parseFloat(newInput[i]);
+    } else if (parseFloat(newInput[i]) !== 'NaN' && parseFloat(newInput[i]) > mx) {
+      mx = parseFloat(newInput[i]);
+    }
+  }
+  const obj = {
+    max: mx,
+    min: mn
+  };
+
+  return obj;
 }

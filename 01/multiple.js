@@ -13,6 +13,25 @@
  * @param  {number} b любое целое число
  * @return {number}
  */
-export function multiple(a, b) {
+export function multiplication(a, b) {
+  function mul(d, f) {
+    let first = d;
 
+    let second = f;
+
+    let c = 0;
+
+    if (second > first) {
+      const temp = first;
+
+      first = second;
+      second = temp;
+    }
+    while (second) {
+      c += first;
+      second -= 1;
+    }
+    return c;
+  }
+  return (a < 0 && b > 0) || (a > 0 && b < 0) ? -mul(Math.abs(a), Math.abs(b)) : mul(Math.abs(a), Math.abs(b));
 }

@@ -14,4 +14,15 @@
  * @param  {string} input строка с произвольным предложением.
  * @return {string}
  */
-export function capitalize(input) {}
+export function capitalize(input) {
+  let newInput = ' ';
+
+  for (let i = 0; i < input.length; i++) {
+    if (i === 0) {
+      newInput = input[i].toUpperCase();
+    } else {
+      newInput += input[i] !== ' ' && input[i - 1] === ' ' ? input[i].toUpperCase() : input[i];
+    }
+  }
+  return newInput;
+}
