@@ -3,9 +3,43 @@
  * элемент куда будем записывать текст
  * поле ввода
  */
-// const textElem = 1;
+const key = 'key';
 
-// const inputEle = textElem;
+const textElem = key + document.getElementById('text').innerText;
+
+function textСheck(text) {
+  const inputEle = key + text.value;
+
+  if (textElem.includes(inputEle)) {
+    document.getElementById('inputText').style.background = '';
+  } else {
+    document.getElementById('inputText').style.background = 'red';
+  }
+}
+if (key === 0) {
+  textСheck();
+}
+let timerId = '';
+
+function gameOver() {
+  // eslint-disable-next-line no-alert
+  if (window.confirm('Начать заного?')) {
+    clearTimeout(timerId);
+    document.getElementById('inputText').style.background = '';
+    document.getElementById('inputText').value = '';
+    timerId = setTimeout(gameOver, 300 * textElem.length);
+  }
+}
+let temp = '';
+
+setInterval(() => {
+  if ((document.getElementById('inputText').value.length - temp) * 20 > 0) {
+    document.getElementById('printSpeed').innerHTML = (document.getElementById('inputText').value.length - temp) * 20;
+  }
+  temp = document.getElementById('inputText').value.length;
+}, 3000);
+
+timerId = setTimeout(gameOver, 300 * textElem.length);
 
 /**
  * состояние нашего приложения
