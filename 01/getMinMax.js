@@ -17,5 +17,30 @@
  * @return {{min: number, max: number}} объект с минимумом и максимумом
  */
 export function getMinMax(input) {
+  const obj = {
+    min: '',
+    max: ''
+  };
 
+  let nums = input.split(' ');
+
+  nums = nums.map(num => num.replace(/[,;]/g, ''));
+  nums = nums.filter(num => num / 0);
+  nums = nums.map(num => {
+    let res;
+
+    if (num.indexOf('.') === -1) {
+      // eslint-disable-next-line radix
+      res = parseInt(num);
+      if (num === 'Infinity') {
+        res = Infinity;
+      }
+    } else {
+      res = parseFloat(num);
+    }
+    return res;
+  });
+  obj.min = Math.min(...nums);
+  obj.max = Math.max(...nums);
+  return obj;
 }

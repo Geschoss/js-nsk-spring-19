@@ -20,5 +20,26 @@
  * @return {boolean}
  */
 export function passwordCheck(password) {
+  let num = false;
 
+  let twolatin = false;
+
+  let upper = false;
+
+  let sym = false;
+
+  let len = false;
+
+  let result = false;
+
+  function check() {
+    password.match(/[A-Z]/g) ? upper = true : upper = false;
+    password.match(/\d/) ? num = true : num = false;
+    password.match(/[a-zA-Z]{2}/g) ? twolatin = true : twolatin = false;
+    password.match(/[-=+*,.?!]/g) ? sym = true : sym = false;
+    password.length >= 10 ? len = true : len = false;
+  }
+  check();
+  num && twolatin && upper && sym && len ? result = true : result = false;
+  return result;
 }

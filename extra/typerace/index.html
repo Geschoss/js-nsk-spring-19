@@ -2,10 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>TypeRacer</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <!-- Добавить текст и поле ввода -->
+    <div class="typerace-container">
+        <h2>Начинай вводить сей текст:</h2>
+        <div class="typerace-text" id="typerace-text"></div>
+        <div class="typerace-input">
+            <input type="text" id="typerace-input" onkeyup="textCheck()">
+        </div>
+        <div>
+            <div class = "typerace-timer_text">Ты вводишь со скоростью <span id="typerace-timer"><strong>0</span> символов</strong> в минуту</div>
+        </div>
+        <div class="typerace-clock">
+            <div class="typerace-clock_text" id="typerace-clock_text">00:00</div>
+            <div class="typerace-clock_img">
+                <img src="./timer-icon.png" alt="Часы">
+            </div>
+    </div>
+    </div>
     <script src="./main.js"></script>
 </body>
 </html>
