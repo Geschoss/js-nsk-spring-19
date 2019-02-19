@@ -20,5 +20,20 @@
  * @return {Function}
  */
 export function limitCalls(fn, maxCalls) {
-
+    let calls = 0;
+    
+    return function () {  
+        calls = calls + 1;
+        if (calls >= maxCalls) return;
+        fn();
+    }
 }
+
+// const increment = () => { count += 1; };
+// let limitedIncrementA = limitCalls(increment, 3);
+
+// limitedIncrementA();
+// limitedIncrementA();
+// limitedIncrementA();
+// limitedIncrementA();
+// limitedIncrementA();
