@@ -20,5 +20,20 @@
  * @return {boolean}
  */
 export function passwordCheck(password) {
-
+    let result;
+    if (password.length > 10 
+        && password.match(/[A-Z]/) 
+        && password.match(/[a-z]/)
+        && password.match(/[0-9]/) 
+        && password.match( /[!,?,,,.,+,-,*,/,=]/)) {
+            result = true;
+    }
+    else {
+        result = false;
+    }
+    console.log(result);
 }
+
+// passwordCheck('Nagibator777');
+// passwordCheck('password');
+// passwordCheck('This is the 7th password I have come up with!');

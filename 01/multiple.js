@@ -14,5 +14,13 @@
  * @return {number}
  */
 export function multiple(a, b) {
-
+    let result = 0;
+    for (i = 0; i < b; i++) {
+        result = result + a;
+    }
+    return console.log(result);
 }
+
+multiple(1, 1);
+multiple(1, 2);
+multiple(0, 0);

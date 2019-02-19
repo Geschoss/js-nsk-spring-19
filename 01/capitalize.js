@@ -14,4 +14,13 @@
  * @param  {string} input строка с произвольным предложением.
  * @return {string}
  */
-export function capitalize(input) {}
+export function capitalize(input) {
+    let words = input.split(" ");
+    for (i = 0; i < words.length; i++) {
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    console.log(words.join(' '));
+}
+
+// capitalize('А роза упала на лапу Азора');
+// capitalize('Use the force, Luke');
