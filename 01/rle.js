@@ -14,5 +14,17 @@
  * @return {string}
  */
 export function rle(input) {
+  const res = [];
 
+  for (let i = 0, counter = 1; i < input.length; i++) {
+    if (input[i] === input[i + 1]) {
+      counter += 1;
+    } else {
+      res.push(input[i]);
+      res.push(counter > 1 ? counter : null);
+      counter = 1;
+    }
+  }
+
+  return res.join('');
 }
