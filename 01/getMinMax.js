@@ -17,5 +17,27 @@
  * @return {{min: number, max: number}} объект с минимумом и максимумом
  */
 export function getMinMax(input) {
+  const result = {
+    min: Infinity,
+    max: -Infinity
+  };
 
+  function isNumber(n) {
+    return /[-+]?(?:(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?|Infinity)/.test(n);
+  }
+
+  let letters = input.split(' ');
+
+  letters = letters.map(num => num.replace(/[,;]/g, ''));
+
+  for (const k in letters) {
+    if ((isNumber(letters[k])) && (Number(letters[k]) > Number(result.max))) {
+      result.max = Number(letters[k]);
+    }
+    if ((isNumber(letters[k])) && (Number(letters[k]) < Number(result.min))) {
+      result.min = Number(letters[k]);
+    }
+  }
+
+  return result;
 }

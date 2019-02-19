@@ -14,5 +14,29 @@
  * @return {string}
  */
 export function rle(input) {
+  const str = input;
 
+  const obj = [];
+
+  let tmp = [];
+
+  let result = '';
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      tmp.push(str[i]);
+    } else {
+      tmp.push(str[i]);
+      obj.push(tmp);
+      tmp = [];
+    }
+  }
+
+  for (const k in obj) {
+    obj[k].length > 1 ?
+      result = result + obj[k][0] + obj[k].length :
+      result += obj[k][0];
+  }
+
+  return result;
 }
