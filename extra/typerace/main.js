@@ -2,33 +2,33 @@ const data = [
   {
     text: 'Of recommend residence education be on difficult repulsive offending. Judge views had mirth table seems '
       + 'great him for her. Alone all happy asked begin fully stand own get. Excuse ye seeing result of we.',
-    timer: '0:10'
+    timer: '1:10'
   },
   {
     text: 'Carriage quitting securing be appetite it declared. High eyes kept so busy feel call in. Would day nor '
       + 'ask walls known. But preserved advantage are but and certainty earnestly enjoyment.',
-    timer: '0:10'
+    timer: '1:10'
   },
   {
     text: 'Conveying or northward offending admitting perfectly my. Colonel gravity get thought fat smiling add but. '
       + 'Wonder twenty hunted and put income set desire expect. Am cottage calling my is mistake cousins talking up.',
-    timer: '0:10'
+    timer: '1:10'
   },
   {
     text: 'At every tiled on ye defer do. No attention suspected oh difficult. Fond his say old meet cold find come '
       + 'whom. The sir park sake bred. Wonder matter now can estate esteem assure fat roused.',
-    timer: '0:10'
+    timer: '0:59'
   },
   {
     text: 'In by an appetite no humoured returned informed. Possession so comparison inquietude he he conviction no '
       + 'decisively. Marianne jointures attended she hastened surprise but she. Ever lady son yet you very paid form '
       + 'away.',
-    timer: '0:10'
+    timer: '0:59'
   },
   {
     text: 'Detract yet delight written farther his general. If in so bred at dare rose lose good. Feel and make two '
       + 'real miss use easy. Celebrated delightful an especially increasing instrument am.',
-    timer: '0:10'
+    timer: '0:59'
   }
 ];
 
