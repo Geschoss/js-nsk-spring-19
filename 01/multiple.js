@@ -13,6 +13,15 @@
  * @param  {number} b любое целое число
  * @return {number}
  */
-export function multiple(a, b) {
 
+export function multiple(a, b) {
+  if (!(a && b)) { return 0; }
+  if (b < 0) {
+    a = -a;
+    b = -b;
+  }
+  let result = a;
+
+  while (--b) { result += a; }
+  return result;
 }

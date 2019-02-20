@@ -17,5 +17,15 @@
  * @return {{min: number, max: number}} объект с минимумом и максимумом
  */
 export function getMinMax(input) {
+  const arr = input.split(' ');
 
+  let max = -Infinity;
+
+  let min = Infinity;
+
+  arr.forEach((item, i, arr) => {
+    item = parseFloat(item);
+    if (item > max) { max = item; } else if (item < min) { min = item; }
+  });
+  return { max, min };
 }

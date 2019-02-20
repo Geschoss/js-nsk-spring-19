@@ -20,5 +20,10 @@
  * @return {Function}
  */
 export function limitCalls(fn, maxCalls) {
+  let currentCount = maxCalls;
 
+  return function() {
+    currentCount--;
+    return (currentCount >= 0) ? fn() : undefined;
+  };
 }

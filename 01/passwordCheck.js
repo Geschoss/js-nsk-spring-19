@@ -20,5 +20,15 @@
  * @return {boolean}
  */
 export function passwordCheck(password) {
+  let result = true;
 
+  if (password.length < 10) { result = false; }
+  if (password.search(/\d/) === -1) { result = false; }
+  let re = /[A-Z]/g;
+
+  if (password.match(re) !== null) {
+    if (password.match(re).length < 2) { result = false; }
+  }
+  if (password.search(/\!/) === -1 && password.search(/\?/) === -1 && password.search(/\./) === -1 && password.search(/\,/) === -1 && password.search(/\+/) === -1 && password.search(/\-/) === -1 && password.search(/\*/) === -1 && password.search(/\//) === -1 && password.search(/\=/) === -1) { result = false; }
+  return result;
 }

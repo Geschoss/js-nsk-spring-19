@@ -14,5 +14,29 @@
  * @return {string}
  */
 export function rle(input) {
+  const str = input.split('');
 
+  let preLetter = str[0];
+
+  let count = 1;
+
+  let result = preLetter;
+
+  str.slice(1).forEach((item, i, arr) => {
+    if (item === preLetter) {
+      if (i !== arr.length - 1) { count++; } else {
+        count++;
+        result += count;
+      }
+    } else
+    if (count > 1) {
+      result += count + item;
+      count = 1;
+      preLetter = item;
+    } else {
+      result += item;
+      preLetter = item;
+    }
+  });
+  return result;
 }
