@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="index.css">
+  <title>Document</title>
 </head>
 <body>
-    <!-- Добавить текст и поле ввода -->
-    <script src="./main.js"></script>
+  <div class="main">
+    <div class="main__text"></div>
+    <div class="main__inputField">
+      <div class="main__inputField_timer"></div>
+      <input class="main__inputField_input" spellcheck="false" placeholder="Type the above text here">
+      <div class="main__inputField_wpm"></div>
+    </div>
+    <div class="main__endMessage">
+      The race has ended :)
+      <button class="main__endMessage_btn">Race again?</button>
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
 </body>
 </html>
