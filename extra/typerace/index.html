@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width">
+  <title>TipeRacer</title>
+  <link href="dist/css/bundle.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Добавить текст и поле ввода -->
-    <script src="./main.js"></script>
+
+<div class="container">
+  <div>Скорость: <span id="speed">0</span> слов в минуту</div>
+  <div>Время: <span id="minutes">0</span> мин. <span id="seconds">0</span> сек.</div>
+  <div class="text-block" id="textBlock">
+  </div>
+  <input type="text" id="inputBlock" class="input-block">
+</div>
+
+<!-- Добавить текст и поле ввода -->
+<script src="dist/js/bundle.js"></script>
 </body>
 </html>
