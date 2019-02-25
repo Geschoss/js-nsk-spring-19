@@ -12,4 +12,16 @@
  * @returns а это уже сами решите
  */
 export function sum(x) {
+  let currentSum = x || 0;
+
+  function f(n) {
+    // eslint-disable-next-line no-unused-expressions
+    n ? (currentSum += n) : '';
+    return f;
+  }
+  // eslint-disable-next-line func-names
+  f.toString = function() {
+    return currentSum;
+  };
+  return f;
 }

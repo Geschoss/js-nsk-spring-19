@@ -12,4 +12,13 @@
  * @param number
  */
 export function mergeNumbers(number) {
+  let neWnumber = number;
+
+  // eslint-disable-next-line no-eval
+  neWnumber = eval(
+    String(neWnumber)
+      .split('')
+      .join('+')
+  );
+  return neWnumber > 10 ? mergeNumbers(neWnumber) : neWnumber;
 }

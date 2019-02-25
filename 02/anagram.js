@@ -12,4 +12,19 @@
  * @return {boolean}
  */
 export function anagram(first, second) {
+  if (
+    first
+      .toUpperCase()
+      .split('')
+      .sort()
+      .join('') ===
+    second
+      .toUpperCase()
+      .split('')
+      .sort()
+      .join('')
+  ) {
+    return true;
+  }
+  return false;
 }

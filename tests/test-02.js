@@ -169,22 +169,22 @@ test('Lesson 2: reduceFilter', t => {
 
 test('Lesson 2: sum', t => {
   t.is(
-    sum(),
+    +sum(),
     0
   );
 
   t.is(
-    sum(1)(2)(),
+    +sum(1)(2)(),
     3
   );
 
   t.is(
-    sum(10)(20)(),
+    +sum(10)(20)(),
     30
   );
 
   t.is(
-    sum(1)(1)(1)(1)(1)(),
+    +sum(1)(1)(1)(1)(1)(),
     5
   );
 });
