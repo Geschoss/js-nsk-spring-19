@@ -12,11 +12,8 @@
  * @param {*[]}      input массив значений
  */
 export function reduceMap(fn, input) {
-  // eslint-disable-next-line arrow-body-style
-  input.reduce((pv, x, i) => {
-    // eslint-disable-next-line no-return-assign
-    return (input[i] = fn(x));
-  }, 0);
+  // eslint-disable-next-line no-return-assign
+  input.reduce((pv, x, i) => (input[i] = fn(x)), 0);
   return input;
 }
 
@@ -33,10 +30,6 @@ export function reduceMap(fn, input) {
 export function reduceFilter(fn, input) {
   const arr = [];
 
-  // eslint-disable-next-line arrow-body-style
-  input.reduce((pv, x) => {
-    return fn(x) ? arr.push(x) : undefined;
-    // eslint-disable-next-line no-return-assign
-  }, 0);
+  input.reduce((pv, x) => (fn(x) ? arr.push(x) : undefined), 0);
   return arr;
 }

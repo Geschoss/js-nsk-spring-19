@@ -14,13 +14,12 @@
 export function getUnique(input) {
   const obj = {};
 
-  for (let i = 0; i < input.length; i++) {
-    obj[input[i]] = true;
-  }
-  const arr = Object.keys(obj);
+  // eslint-disable-next-line no-return-assign
+  input.map((item, i) => (obj[item] = true));
 
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] = +arr[i];
-  }
-  return arr.sort();
+  const arr = Object.keys(obj)
+    .map(i => +i)
+    .sort();
+
+  return arr;
 }

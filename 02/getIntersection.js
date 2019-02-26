@@ -15,13 +15,6 @@
 export function getIntersection(first, second) {
   const newArray = [];
 
-  function arraySorting(a, b) {
-    return a - b;
-  }
-  for (let i = 0; i < first.length; i++) {
-    if (second.indexOf(first[i]) > -1) {
-      newArray.push(first[i]);
-    }
-  }
-  return newArray.sort(arraySorting);
+  first.map(i => (second.indexOf(i) > -1 ? newArray.push(i) : ''));
+  return newArray.sort((a, b) => a - b);
 }
