@@ -14,4 +14,8 @@
  * @return {Function} функция с нужным контекстом
  */
 export function customBind(func, context, ...args) {
+  // eslint-disable-next-line func-names
+  return function(argument) {
+    return func.apply(context, [...args, argument]);
+  };
 }
