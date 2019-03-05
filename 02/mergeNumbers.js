@@ -12,4 +12,23 @@
  * @param number
  */
 export function mergeNumbers(number) {
+  function getArr(val) {
+    return val.toString().split('');
+  }
+
+  function getSum(arr) {
+    return arr.reduce((a, b) => Number(a) + Number(b));
+  }
+
+  const numbersArr = getArr(number);
+
+  let sum = getSum(numbersArr);
+
+  while (sum > 9) {
+    const temp = getArr(sum);
+
+    sum = getSum(temp);
+  }
+
+  return Number(sum);
 }

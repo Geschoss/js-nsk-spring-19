@@ -12,4 +12,15 @@
  * @return {Set<any>} массив уникальных значений, отсортированный по возрастанию
  */
 export function getUnique(input) {
+  const res = [];
+  const dict = {};
+
+  input.forEach(item => {
+    if (!dict[item]) {
+      res.push(item);
+      dict[item] = true;
+    }
+  });
+
+  return Object.assign(res.sort((a, b) => a - b));
 }

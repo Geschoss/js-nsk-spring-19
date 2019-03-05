@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  background: #f0f5ff;
+  color: darkslategrey;
+}
+
+.main {
+  width: 800px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+}
+
+.main__text {
+  width: 600px;
+  font-size: 20px;
+}
+
+.main__inputField {
+  margin-top: 20px;
+}
+
+.main__inputField_input {
+  width: 600px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.main__inputField_timer {
+  height: 36px;
+  font-size: 18px;
+  color: cornflowerblue;
+}
+
+.main__inputField_wpm {
+  display: inline-block;
+  height: 36px;
+  width: 130px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.main__endMessage {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  display: none;
+}
+
+.main__endMessage_btn {
+  background: white;
+  margin-left: 363px;
+  height: 30px;
+  width: 100px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: darkred;
+}
+
+.main__endMessage_btn:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}

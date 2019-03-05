@@ -17,5 +17,33 @@
  * @return {{min: number, max: number}} объект с минимумом и максимумом
  */
 export function getMinMax(input) {
+  const reg = /-?\d+(\.\d+)?/g;
+  const arr = input.match(reg);
+  const numArr = arr.map(item => Number(item));
 
+  let min = numArr[0];
+
+  let max = numArr[0];
+
+  numArr.forEach(item => {
+    if (min > item) {
+      min = item;
+    }
+    if (max < item) {
+      max = item;
+    }
+  });
+
+  if (input.includes('Infinity')) {
+    max = Infinity;
+  }
+
+  if (input.includes('-Infinity')) {
+    min = -Infinity;
+  }
+
+  return {
+    min,
+    max
+  };
 }

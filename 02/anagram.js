@@ -12,4 +12,8 @@
  * @return {boolean}
  */
 export function anagram(first, second) {
+  const arr1 = first.toLowerCase().split('');
+  const arr2 = second.toLowerCase().split('');
+
+  return arr1.every(item => arr2.includes(item) && arr1.length === arr2.length);
 }
