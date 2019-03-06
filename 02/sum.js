@@ -12,4 +12,19 @@
  * @returns а это уже сами решите
  */
 export function sum(x) {
+  let count = x;
+
+  if (!count) {
+    return 0;
+  }
+
+  function f(y) {
+    if (y) {
+      count += y;
+      return f;
+    }
+    return count;
+  }
+
+  return f;
 }
