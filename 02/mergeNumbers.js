@@ -12,4 +12,8 @@
  * @param number
  */
 export function mergeNumbers(number) {
+  while (number > 10) {
+    number = number.toString().split('').map(string => (Number(string))).reduce((a, b) => a + b, 0);
+  }
+  return number;
 }
