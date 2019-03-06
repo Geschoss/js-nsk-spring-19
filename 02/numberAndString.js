@@ -11,14 +11,14 @@
  */
 export class NumberAndString {
   constructor(x) {
-    this.val = x;
+    this.str = x;
   }
 
   toString() {
-    return this.val;
+    return this.str;
   }
 
   valueOf() {
-    return this.val.length;
+    return this.str.length;
   }
 }
