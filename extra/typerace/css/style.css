@@ -1,0 +1,86 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid black;
+  padding: 25px;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+h2 {
+  margin: 0;
+}
+
+#textLive {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+ul {
+  display: inline-block;
+  vertical-align: bottom;
+  margin: 0;
+}
+
+ul li {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 25px;
+  width: 27.2px;
+  height: 27.2px;
+  background: green;
+  border-radius: 50%;
+}
+
+#textTime {
+  float: right;
+}
+
+#textSpeed {
+  display: table;
+  margin: 0 0 0 auto;
+}
+
+#text {  
+  margin-left: 8%;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-top: 25px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+#text span{
+  color: slategray;
+}
+#inputText {
+  width: 83%;
+  padding: 0 10px; /* Поля */
+  line-height: 36px;
+  border-radius: 5px;
+}
+#conteiner-button{ /* переименовать */
+  display: inline-block;
+  vertical-align: top;
+  width: 7%;
+}
+#button{
+  margin:40px 0 0 25px;
+  width: 25px;
+  height: 25px;
+  border: 2px solid black;
+  border-radius: 3px;
+  text-align: center;
+}
+#textStat{
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
+  text-align: center; 
+}
+p {
+  text-align: center;
+}
