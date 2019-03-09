@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Document</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
+  <body>
+    <section>
+      <div class="container">
+        <h2 id="textLive">Live</h2>
+        <ul id="listLive"></ul>
+        <h2 id="textTime">
+          Time:<span id="printTimeMin">00</span>:<span id="printTimeSec">00</span>
+        </h2>
 
-<body>
-  <section>
-    <div class="container">
-      <h2 id="textLive">Live</h2>
-      <ul id="listLive"></ul>
-      <h2 id="textTime">
-        Time:<span id="printTimeMin">00</span>:<span id="printTimeSec">00</span>
-      </h2>
+        <h2 id="textSpeed">Speed:<span id="printSpeed">0</span>c/м</h2>
+        <div id="text" class="container clearfix">
+          I quess this time you're really leaving. I heard your suitcase say goodbye. Well, as my
+          broken heart lies bleeding you say true love is suicide. You say you've cried a thousand
+          rivers and now you're swimming for the shore. You left me drowning in my tears and you
+          won't save me anymore.
+        </div>
+        <div id="conteiner-button">
+          <button id="stop" onclick="timeStop()"></button>
+          <h2 id="textStat">Stat</h2>
+        </div>
 
-      <h2 id="textSpeed">Speed:<span id="printSpeed">0</span>c/м</h2>
-      <div id="text" class="container clearfix">
-        I quess this time you're really leaving. I heard your suitcase say goodbye. Well, as my
-        broken heart lies bleeding you say true love is suicide. You say you've cried a thousand
-        rivers and now you're swimming for the shore. You left me drowning in my tears and you
-        won't save me anymore.
+        <p><input type="text" id="inputText" oninput="textСheck(this)" /></p>
       </div>
-      <div id="conteiner-button">
-        <div id="button">||</div>
-        <h2 id=textStat>Stat</h2>
-      </div>
-
-      <p><input type="text" id="inputText" oninput="textСheck(this)" /></p>
-    </div>
-  </section>
-  <script src="./main.js"></script>
-</body>
-
+    </section>
+    <script src="./main.js"></script>
+  </body>
 </html>
