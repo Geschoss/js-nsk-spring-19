@@ -45,8 +45,15 @@ ul li {
   margin: 0 0 0 auto;
 }
 
-#text {
+#conteinerText {
   margin-left: 8%;
+  display: inline-block;
+  vertical-align: bottom;
+  border: 0;
+}
+
+#text {
+  width: 94%;
   display: inline-block;
   vertical-align: bottom;
   margin-top: 25px;
@@ -54,32 +61,45 @@ ul li {
   margin-bottom: 25px;
 }
 
+#text p::selection {
+  background: transparent;
+}
+
+#text p::-moz-selection {
+  background: transparent;
+}
+
 #text span {
   color: slategray;
 }
 
 #inputText {
-  width: 83%;
+  width: 97%;
   padding: 0 10px; /* Поля */
   line-height: 36px;
   border-radius: 5px;
 }
 
-#conteiner-button {
-  /* переименовать */
+#conteinerButton {
   display: inline-block;
   vertical-align: top;
   width: 7%;
 }
 
-#stop {
+#stop,
+#refresh {
   margin: 40px 0 0 25px;
   width: 25px;
   height: 25px;
   border: 2px solid black;
   border-radius: 3px;
-  text-align: center;
   background: url(http://www.cgliberty.com/itrazvedka/icons/49.png) 100% 100% no-repeat;
+  background-size: cover;
+}
+
+#refresh {
+  margin: 0;
+  background: url(https://static.thenounproject.com/png/5651-200.png) 100% 100% no-repeat;
   background-size: cover;
 }
 
@@ -88,8 +108,10 @@ ul li {
   vertical-align: bottom;
   width: 100%;
   text-align: center;
+  margin: 0 auto;
 }
 
-p {
-  text-align: center;
+#conteinerButton span {
+  display: table;
+  margin: 0 auto;
 }

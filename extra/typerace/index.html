@@ -16,18 +16,25 @@
         </h2>
 
         <h2 id="textSpeed">Speed:<span id="printSpeed">0</span>c/м</h2>
-        <div id="text" class="container clearfix">
-          I quess this time you're really leaving. I heard your suitcase say goodbye. Well, as my
-          broken heart lies bleeding you say true love is suicide. You say you've cried a thousand
-          rivers and now you're swimming for the shore. You left me drowning in my tears and you
-          won't save me anymore.
+        <div id="conteinerText" class="container">
+          <div id="text" class="container">
+            I quess this time you're really leaving. I heard your suitcase say goodbye. Well, as my
+            broken heart lies bleeding you say true love is suicide. You say you've cried a thousand
+            rivers and now you're swimming for the shore. You left me drowning in my tears and you
+            won't save me anymore.
+          </div>
+          <input type="text" id="inputText" oninput="textСheck(this)" />
         </div>
-        <div id="conteiner-button">
+        <div id="conteinerButton">
           <button id="stop" onclick="timeStop()"></button>
+          <button id="refresh" onClick="window.location.reload()"></button>
           <h2 id="textStat">Stat</h2>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-
-        <p><input type="text" id="inputText" oninput="textСheck(this)" /></p>
       </div>
     </section>
     <script src="./main.js"></script>

@@ -1,6 +1,44 @@
 /* eslint-disable spaced-comment */
 let textElem;
 
+let timeGame;
+
+let timeText;
+
+let currentTime;
+
+function timer(timeText) {
+  currentTime = timeText;
+  // eslint-disable-next-line no-unused-vars
+  timeGame = setInterval(() => {
+    // eslint-disable-next-line no-unused-expressions
+    currentTime >= 60 ? (document.getElementById('printTimeMin').innerHTML = `0${Math.floor(currentTime / 60)}`) : '';
+    document.getElementById('printTimeSec').innerHTML = currentTime % 60 < 10 ? `0${currentTime % 60}` : currentTime % 60;
+    if (currentTime < 10 && currentTime % 2) {
+      document.getElementById('textTime').style.color = 'red';
+      document.getElementById('textTime').style.fontSize = '1.8em';
+    } else if (currentTime < 10) {
+      document.getElementById('textTime').style.color = '';
+      document.getElementById('textTime').style.fontSize = '1.5em';
+    }
+    currentTime -= 1;
+    // eslint-disable-next-line no-unused-expressions
+    //currentTime < 0 ? clearInterval(timeGame) : '';
+  }, 1000);
+}
+function getLokalStorage() {
+  let j = 0;
+
+  for (let i = localStorage.length - 4; i <= localStorage.length; i++) {
+    document.getElementById('conteinerButton').querySelectorAll('span')[j].innerHTML =
+      localStorage.getItem(i) < 60 && localStorage.getItem(i) !== null
+        ? `00:${localStorage.getItem(i)}`
+        : `0${Math.floor(localStorage.getItem(i) / 60)}:${
+            localStorage.getItem(i) % 60 > 9 ? localStorage.getItem(i) % 60 : '0' + (localStorage.getItem(i) % 60)
+          }`;
+    j++;
+  }
+}
 //запрос теста
 function getText() {
   const newText = new XMLHttpRequest();
@@ -8,9 +46,13 @@ function getText() {
   newText.open('GET', 'https://fish-text.ru/get?format=html&number=1', false);
   newText.send();
   textElem = `key${newText.responseText.replace('<p>', '').replace('</p>', '')}`;
-  document.getElementById('text').innerHTML = `<span></span>${textElem.replace('key', '')}`;
+  document.getElementById('text').innerHTML = `<p><span></span>${textElem.replace('key', '')}</p>`;
+  timeText = Math.floor((300 * textElem.length) / 1000);
+  timer(timeText);
 }
 getText();
+getLokalStorage();
+
 //следим за ошибками в input
 let errorCounter = Math.trunc(textElem.length / 30); //расчет возможного кол-ва ошибок
 
@@ -30,6 +72,7 @@ function textСheck(text) {
   errorCounter < 1 ? gameOver() : '';
   if (inputEle === textElem) {
     gameEnd();
+    getText();
   }
 }
 
@@ -45,29 +88,6 @@ setInterval(() => {
 
 let timerId = setTimeout(gameOver, 300 * textElem.length);
 
-// пока секундомер игры(переделать на таймер)
-let timeText = Math.floor((300 * textElem.length) / 1000);
-
-let timeGame;
-
-function timer(number) {
-  timeText = number;
-  // eslint-disable-next-line no-unused-vars
-  timeGame = setInterval(() => {
-    // eslint-disable-next-line no-unused-expressions
-    timeText >= 60 ? (document.getElementById('printTimeMin').innerHTML = `0${Math.floor(timeText / 60)}`) : '';
-    document.getElementById('printTimeSec').innerHTML = timeText % 60 < 10 ? `0${timeText % 60}` : timeText % 60;
-    if (timeText < 10 && timeText % 2) {
-      document.getElementById('textTime').style.color = 'red';
-      document.getElementById('textTime').style.fontSize = '1.8em';
-    } else if (timeText < 10) {
-      document.getElementById('textTime').style.color = '';
-      document.getElementById('textTime').style.fontSize = '1.5em';
-    }
-    timeText -= 1;
-  }, 1000);
-}
-timer(timeText);
 //выводим количество жизни
 function constructorLive(amountLife) {
   let newUl = '';
@@ -91,14 +111,13 @@ function gameOver() {
     timerId = setTimeout(gameOver, 300 * textElem.length);
     getText();
     document.getElementById('listLive').innerHTML = constructorLive(Math.trunc(textElem.length / 30));
-    timer(Math.floor((300 * textElem.length) / 1000));
     while (errorCounter < Math.trunc(textElem.length / 30)) {
       document.getElementById('listLive').querySelectorAll('li')[errorCounter].style.background = 'green';
       errorCounter += 1;
     }
   }
   clearInterval(timeGame);
-  timeText = Math.floor((300 * textElem.length) / 1000);
+  document.getElementById('inputText').disabled = true;
 }
 
 //стираем жизнь
@@ -112,7 +131,7 @@ function timeStop() {
   const stopStyle = getComputedStyle(document.getElementById('stop'));
 
   // eslint-disable-next-line no-shadow
-  const temp = timeText;
+  const temp = currentTime;
 
   // eslint-disable-next-line no-cond-assign
   if (stopStyle.backgroundImage === 'url("http://www.cgliberty.com/itrazvedka/icons/49.png")') {
@@ -124,14 +143,14 @@ function timeStop() {
   } else {
     document.getElementById('stop').style.backgroundImage = 'url("http://www.cgliberty.com/itrazvedka/icons/49.png")';
     timer(temp);
-    //console.log(temp);
     timerId = setTimeout(gameOver, (temp + 1) * 1000);
     document.getElementById('inputText').disabled = false;
   }
 }
 
 function gameEnd() {
-  localStorage.setItem(localStorage.length + 1, timeText);
+  localStorage.setItem(localStorage.length + 1, currentTime + 1);
   clearInterval(timeGame);
   clearTimeout(timerId);
+  getLokalStorage();
 }
