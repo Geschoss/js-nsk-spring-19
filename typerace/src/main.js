@@ -31,11 +31,11 @@ function getLokalStorage() {
 
   for (let i = localStorage.length - 4; i <= localStorage.length; i++) {
     document.getElementById('conteinerButton').querySelectorAll('span')[j].innerHTML =
-      localStorage.getItem(i) < 60 && localStorage.getItem(i) !== null
-        ? `00:${localStorage.getItem(i)}`
-        : `0${Math.floor(localStorage.getItem(i) / 60)}:${
-            localStorage.getItem(i) % 60 > 9 ? localStorage.getItem(i) % 60 : '0' + (localStorage.getItem(i) % 60)
-          }`;
+      localStorage.getItem(i) < 60 && localStorage.getItem(i) !== null ?
+        `00:${localStorage.getItem(i)}` :
+        `0${Math.floor(localStorage.getItem(i) / 60)}:${
+          localStorage.getItem(i) % 60 > 9 ? localStorage.getItem(i) % 60 : `0${localStorage.getItem(i) % 60}`
+        }`;
     j++;
   }
 }
@@ -61,6 +61,7 @@ function textСheck(text) {
   const inputEle = `key${text.value}`;
 
   if (textElem.includes(inputEle)) {
+    /* if (textElem.startsWith(inputEle)) */
     document.getElementById('text').innerHTML = `<span>${text.value}</span>${textElem.replace(`key${text.value}`, '')}`;
     document.getElementById('inputText').style.background = '';
   } else {
@@ -68,9 +69,11 @@ function textСheck(text) {
   }
   // eslint-disable-next-line no-unused-expressions
   !textElem.includes(inputEle) ? eraseLife(--errorCounter) : '';
+  /*  !textElem.startsWith(inputEle) ?  eraseLife(--errorCounter) : '';*/
   // eslint-disable-next-line no-unused-expressions
   errorCounter < 1 ? gameOver() : '';
   if (inputEle === textElem) {
+    // eslint-disable-next-line no-use-before-define
     gameEnd();
     getText();
   }
