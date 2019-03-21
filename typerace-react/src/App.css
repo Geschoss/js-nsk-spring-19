@@ -1,0 +1,53 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid black;
+  padding: 25px;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+#textLive {
+  display: inline-block;
+  vertical-align: bottom;
+}
+   
+#conteinerText {
+  margin-left: 8%;
+  display: inline-block;
+  vertical-align: bottom;
+  border: 0;
+}
+
+#text {
+  width: 94%;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-top: 25px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+#text p::selection {
+  background: transparent;
+}
+
+#text p::-moz-selection {
+  background: transparent;
+}
+
+
+#inputText {
+  width: 80%;
+  margin-left: 10%;
+  padding: 0 10px; 
+  line-height: 36px;
+  border-radius: 5px;
+}
+
+
+
